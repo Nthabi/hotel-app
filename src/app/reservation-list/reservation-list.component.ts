@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reservation-list',
