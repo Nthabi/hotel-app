@@ -1,5 +1,17 @@
-<div>
-    <h2>Welcome to Hotel Reservation Platform</h2>
-    <button [routerLink]="['new']">Create new reservation</button>
-    <button [routerLink]="['list']">View all reservations</button>
-</div>
+<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 text-center">
+    <div class="card shadow-lg p-5 w-100" style="max-width: 600px;">
+      <h1 class="mb-4 text-primary">🏨 Welcome to Hotel Reservation Platform</h1>
+      <p class="lead mb-4 text-muted">
+        Easily manage your bookings — create new reservations or browse all existing ones.
+      </p>
+      <div class="d-grid gap-3">
+        <a class="btn btn-success btn-lg" [routerLink]="['/new']">
+          ➕ Create New Reservation
+        </a>
+        <a class="btn btn-outline-primary btn-lg" [routerLink]="['/list']">
+          📋 View All Reservations
+        </a>
+      </div>
+    </div>
+  </div>
+  
