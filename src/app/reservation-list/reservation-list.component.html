@@ -11,7 +11,7 @@
             Check In : {{reservation.checkInDate}}<br/>
             Check Out : {{reservation.checkOutDate}} <br/>
             <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">Delete Reservation</button>
-            <button class="btn btn-warning" (click)="editReservation(reservation)">Edit Reservation</button>
+            <button class="btn btn-warning" [routerLink]="['/edit', reservation.id]">Edit Reservation</button>
         </li> 
 
     </ul>

@@ -22,8 +22,8 @@ export class ReservationListComponent implements OnInit{
     this.reservationService.deleteReservation(id);
   }
 
-  editReservation(newReservation: Reservation) {
-    this.reservationService.updateReservation(newReservation);
+  editReservation(id:string, newReservation: Reservation) {
+    this.reservationService.updateReservation(id, newReservation);
   }
 
 
