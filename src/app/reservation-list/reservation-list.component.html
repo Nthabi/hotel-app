@@ -1,16 +1,24 @@
 <h2>Reservation List</h2>
 
+
+
 <div *ngIf="reservations.length; else noReservation">
-    <ul *ngFor="let reservation of reservations">
-        <li>Guest : {{reservation.guestName}}</li>
-        <li>Email : {{reservation.guestEmail}}</li>
-        <li>Check In : {{reservation.checkInDate}}</li>
-        <li>Check Out : {{reservation.checkOutDate}}</li>
+    <button class="btn btn-primary mt-50 ml-20" [routerLink]="['/new']">New reservation</button>
+    <ul >
+        <li *ngFor="let reservation of reservations" >
+            Guest : {{reservation.guestName}} <br/>
+            Email : {{reservation.guestEmail}}<br/>
+            Check In : {{reservation.checkInDate}}<br/>
+            Check Out : {{reservation.checkOutDate}} <br/>
+            <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">Delete Reservation</button>
+            <button class="btn btn-warning" (click)="editReservation(reservation)">Edit Reservation</button>
+        </li> 
+
     </ul>
 </div>
 
 
 <ng-template #noReservation>
     <h6>You currently have no reservations</h6>
-    <p>Add your reservation here: </p> <button [routerLink]="['new']" class="btn btn-primary">Create new reservation</button>
+    <p>Add your reservation here: </p> <button [routerLink]="['/new']" class="btn btn-primary">Create new reservation</button>
 </ng-template>
