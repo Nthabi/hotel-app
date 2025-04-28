@@ -4,7 +4,7 @@
         <input type="date" formControlName="checkInDate">
         <div *ngIf="reservationForm.get('checkInDate')?.invalid 
                 && reservationForm.get('checkInDate')?.touched">
-            <small>Name is required</small>
+            <small>Check in date required</small>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
         <input type="date" formControlName="checkOutDate">
         <div *ngIf="reservationForm.get('checkOutDate')?.invalid 
                 && reservationForm.get('checkOutDate')?.touched">
-            <small>Name is required</small>
+            <small>Check out date required</small>
         </div>
     </div>
 
