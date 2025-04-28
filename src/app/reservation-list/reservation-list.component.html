@@ -1,24 +1,34 @@
-<h2>Reservation List</h2>
-
-
-
-<div *ngIf="reservations.length; else noReservation">
-    <button class="btn btn-primary mt-50 ml-20" [routerLink]="['/new']">New reservation</button>
-    <ul >
-        <li *ngFor="let reservation of reservations" >
-            Guest : {{reservation.guestName}} <br/>
-            Email : {{reservation.guestEmail}}<br/>
-            Check In : {{reservation.checkInDate}}<br/>
-            Check Out : {{reservation.checkOutDate}} <br/>
-            <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">Delete Reservation</button>
-            <button class="btn btn-warning" [routerLink]="['/edit', reservation.id]">Edit Reservation</button>
-        </li> 
-
-    </ul>
-</div>
-
-
-<ng-template #noReservation>
-    <h6>You currently have no reservations</h6>
-    <p>Add your reservation here: </p> <button [routerLink]="['/new']" class="btn btn-primary">Create new reservation</button>
-</ng-template>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="text-primary">📋 Reservation List</h2>
+      <a class="btn btn-success" [routerLink]="['/new']">➕ New Reservation</a>
+    </div>
+  
+    <div *ngIf="reservations.length; else noReservation">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let reservation of reservations">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ reservation.guestName }}</h5>
+              <p class="card-text mb-2"><strong>Email:</strong> {{ reservation.guestEmail }}</p>
+              <p class="card-text mb-2"><strong>Check In:</strong> {{ reservation.checkInDate }}</p>
+              <p class="card-text mb-2"><strong>Check Out:</strong> {{ reservation.checkOutDate }}</p>
+            </div>
+            <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
+              <button class="btn btn-sm btn-warning" [routerLink]="['/edit', reservation.id]">✏️ Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteReservation(reservation.id)">🗑️ Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noReservation>
+      <div class="text-center mt-5">
+        <h5 class="text-muted">You currently have no reservations</h5>
+        <p class="mb-3">Start by creating your first one:</p>
+        <a class="btn btn-primary btn-lg" [routerLink]="['/new']">➕ Create New Reservation</a>
+      </div>
+    </ng-template>
+  </div>
+  
